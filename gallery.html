@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YJ : Gallery</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- font awesome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- end of font awesome cdn link -->
+
+<!-- css -->
+
+<style>
+
+:root {
+    --main-color: #d3ad7f;
+    --black: #13131a;
+    --bg:#010103;
+    --border: .1rem solid rgba(255,255,255,.3);
+}
+
+*{
+    font-family: "Century Gothic", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+}
+
+body {
+    background: black;
+}
+
+.heading {
+    display: grid;
+    text-align: center;
+    color: crimson;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.heading span {
+    display: inline-block;
+    color: var(--main-color);
+    text-transform: uppercase;
+}
+
+.heading:hover {
+    color: var(--main-color);
+}
+
+.img-gallery {
+    width: 100%;
+    margin: 90px auto 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 20px;
+}
+
+.img-gallery img {
+    margin: 5px;
+    width: 80%;
+    margin-left: 40px;
+    cursor: pointer;
+}
+
+.img-gallery img:hover {
+    transform: scale(0.8) rotate(-12deg);
+    border-radius: 20px;
+    transition: .6s;
+    box-shadow: 0 22px 65px rgb(168, 166, 166);
+}
+
+.full-img {
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.76);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.full-img img {
+    width: 60%;
+    max-width: 500px;
+}
+
+.full-img span {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    font-size: 25px;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+
+
+
+/* media queries */
+
+@media (max-width:991px) {
+    html {
+        font-size: 55%;
+    }
+
+    .header{
+        padding: 1.5px 2px;
+    }
+
+    section{
+        padding: 2rem;
+    }
+
+}
+
+@media (max-width: 768px) {
+    #menu-btn {
+         display: inline-block;
+    }
+
+    .header .navbar {
+        position: absolute;
+        top: 100%; right: -100%;
+        background: #fff;
+        width: 30rem;
+        height: calc(100vh - 9.5rem);
+    }
+
+    .header .navbar.active {
+        right: 0;
+    }
+
+    .header .navbar a{
+        color: var(--black);
+        display: block;
+        margin: 1.5rem;
+        padding:.5rem;
+        font-size: 2rem;
+    }
+
+    .header .search-form {
+        width: 90%;
+        right: 2rem;
+    }
+
+    .home {
+        background-position: left;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .home .content h3 {
+        font-size: 4.5rem;
+    }
+
+    .home .content p {
+        font-size: 1.5rem;
+    }
+
+}
+
+@media (max-width:350px) {
+    html {
+        font-size: 50%;
+    }
+
+    .heading {
+        margin-bottom: 0;
+        font-size: 5rem;
+    }
+
+    .img-gallery img {
+        width: 260px;
+        height: 80%;
+    }
+
+}
+
+
+
+
+
+
+/* pre loader */
+
+#preloader {
+    background: #fff url(image/untitled-5.gif) no-repeat center center;
+    background-size: 30%;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+}
+
+/* end of pre loader */
+
+
+
+
+
+
+</style>
+
+</head>
+<body>
+
+    <div class="heading">
+        <a href="gallery.html"> <h1><span>g</span>allery</h1> </a>
+    </div>
+    
+    <div class="full-img" id="fullImgBox">
+        <img src="image/img1.jpg" id="fullImg">
+        <span onclick="closeFullImg()">X</span>
+    </div>
+
+  <div class="img-gallery">
+      <img src="images/1.jpg" onclick="openFullImg(this.src)">
+      <img src="images/2.jpg" height="85%" onclick="openFullImg(this.src)">
+      <img src="images/3.jpg" height="85%" onclick="openFullImg(this.src)">
+      <img src="images/4.jpg" height="85%" onclick="openFullImg(this.src)">
+      <img src="images/5.jpg" height="85%" onclick="openFullImg(this.src)">
+      <img src="images/6.jpg" height="85%" onclick="openFullImg(this.src)">
+      <img src="images/7.jpg" height="85%" onclick="openFullImg(this.src)">
+      <img src="images/8.jpg" height="85%" onclick="openFullImg(this.src)">
+      <img src="images/9.jpg" height="85%" onclick="openFullImg(this.src)">
+      <img src="images/10.jpg" height="85%" onclick="openFullImg(this.src)">
+      <img src="images/11.jpg" height="85%" onclick="openFullImg(this.src)">
+      <img src="images/12.jpg" height="85%" onclick="openFullImg(this.src)">
+      <img src="images/13.jpg" onclick="openFullImg(this.src)">
+      <img src="images/14.jpg" height="85%" onclick="openFullImg(this.src)">
+      <img src="images/15.jpg" height="85%" onclick="openFullImg(this.src)">
+      <img src="images/16.jpg" height="85%" onclick="openFullImg(this.src)">
+      <img src="images/17.jpg" height="85%" onclick="openFullImg(this.src)">
+      <img src="images/18.jpg" height="85%" onclick="openFullImg(this.src)">
+      <img src="images/19.jpg" height="85%" onclick="openFullImg(this.src)">
+      <img src="images/20.jpg" height="85%" onclick="openFullImg(this.src)">
+      <img src="images/21.jpg" height="85%" onclick="openFullImg(this.src)">
+      <img src="images/22.jpg" height="85%" onclick="openFullImg(this.src)">
+      <img src="images/23.jpg" height="85%" onclick="openFullImg(this.src)">
+      <img src="images/24.jpg" height="85%" onclick="openFullImg(this.src)">
+      <img src="images/25.jpg" height="85%" onclick="openFullImg(this.src)">
+      <img src="images/26.jpg" height="85%" onclick="openFullImg(this.src)">
+      <img src="images/27.jpg" height="85%" onclick="openFullImg(this.src)">
+      <img src="images/28.jpg" height="85%" onclick="openFullImg(this.src)">
+      <img src="images/29.jpg" height="85%" onclick="openFullImg(this.src)">
+      <img src="images/30.jpg" height="85%" onclick="openFullImg(this.src)">
+      <img src="images/31.jpg" height="85%" onclick="openFullImg(this.src)">
+      <img src="images/32.jpg" height="85%" onclick="openFullImg(this.src)">
+      <img src="images/33.jpg" height="85%" onclick="openFullImg(this.src)">
+      <img src="images/34.jpg" height="85%" onclick="openFullImg(this.src)">
+      <img src="images/35.jpg" height="85%" onclick="openFullImg(this.src)">
+      <img src="images/36.jpg" height="85%" onclick="openFullImg(this.src)">
+      <img src="images/37.jpg" height="85%" onclick="openFullImg(this.src)">
+      <img src="images/38.jpg" height="85%" onclick="openFullImg(this.src)">
+      <img src="images/39.jpg" height="85%" onclick="openFullImg(this.src)">
+      <img src="images/40.jpg" height="85%" onclick="openFullImg(this.src)">
+  </div>
+
+
+
+
+  <!-- footer section start -->
+
+<section class="footer">
+    <a href="yogesh.html#home"> <h2>YOGESH JEWELLERS</h2> </a>
+        <div class="share">
+            <a href="https://www.facebook.com" class="fab fa-facebook-f"></a>
+            <a href="https://www.twitter.com" class="fab fa-twitter"></a>
+            <a href="https://www.instagram.com" class="fab fa-instagram"></a>
+        </div>
+    
+        <div class="links">
+            <a href="yogesh.html#home">home</a>
+            <a href="yogesh.html#about">about</a>
+            <a href="gallery.html">gallery</a>
+            <a href="yogesh.html#contact">contact us</a>
+        </div>
+    
+        <div class="credit"> copyright by 2021. created by <span><a href="http://instagram.com/call_me_prophet_?utm_source=qr"> Nitin Verma. </a></span> all rights reserved YogeshJewellers.</div>
+    
+    </section>
+    
+    <!-- footer section end -->
+
+
+
+<!-- script -->
+
+<script>
+
+   var fullImgBox = document.getElementById("fullImgBox");
+   var fullImg = document.getElementById("fullImg");
+
+   function openFullImg(pic){
+       fullImgBox.style.display = "flex";
+       fullImg.src = pic;
+   }
+
+   function closeFullImg(){
+    fullImgBox.style.display = "none";
+   }
+
+</script>
+
+</body>
+</html>
