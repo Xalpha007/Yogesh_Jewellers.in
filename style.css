@@ -645,6 +645,10 @@ section{
     color: var(--main-color);
 }
 
+.footer .credit span1 a {
+    color: red;
+}
+
 
 
 
